@@ -4,7 +4,7 @@ import { Usuarios } from "../entities/usuarios.entitie"
 import {  CreateUser, ReturnUser, returnUserSchema } from "../schemas/usuarios.schemas"
 import { AppError } from "../errors"
 
-export const createPostService=async(userData:CreateUser):Promise<ReturnUser>=>{
+export const createUserService=async(userData:CreateUser):Promise<ReturnUser>=>{
     const userRepository: Repository<Usuarios> = AppDataSource.getRepository(Usuarios)
     
     const findUser: Usuarios | null = await userRepository.findOne({

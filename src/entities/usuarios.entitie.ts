@@ -1,5 +1,6 @@
-import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, BeforeUpdate, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import {getRounds,hashSync} from "bcryptjs"
+import { Posts } from "./posts.entitie";
 @Entity("usuarios")
 export class Usuarios {
     @PrimaryGeneratedColumn("increment")
@@ -14,6 +15,7 @@ export class Usuarios {
     @Column()
     password: string
 
+    
     @BeforeInsert()
     @BeforeUpdate()
     hashPassword(){
